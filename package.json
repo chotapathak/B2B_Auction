@@ -1,0 +1,29 @@
+{
+  "name": "b2b_auc",
+  "version": "1.0.0",
+  "description": "Escrow B2B Auction for project auctions",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chotapathak/B2B_Auction.git"
+  },
+  "keywords": [
+    "B2B",
+    "auction",
+    "nft",
+    "escrow",
+    "sealedbid"
+  ],
+  "author": "Vikash Pathak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chotapathak/B2B_Auction/issues"
+  },
+  "homepage": "https://github.com/chotapathak/B2B_Auction#readme"
+}
