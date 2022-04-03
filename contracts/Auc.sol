@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
+import './BidAuc.sol';
 
-contract Auc {
+contract AucFactory {
     // basic requirements
     address public owner;
     uint public startBlock;
@@ -38,12 +39,18 @@ contract Auc {
 
         owner = msg.sender;
     }
-//
+//  
+    address payable[] public auctions;
     constructor(address _owner, uint _bidDecrement, uint _startBlock, uint _endBlock, string memory _ipfsHash)  {
         if (_startBlock >= _endBlock) revert();
         if (_startBlock <= block.number) revert();
         if (_owner == address(0)) revert();
 
+        // // biding Auction 
+        // BiddingContract AucBid = new BiddingContract();
+        // auctions.push(AucBid);
+
+        
         owner = _owner;
         bidDecrement = _bidDecrement;
         startBlock = _startBlock;

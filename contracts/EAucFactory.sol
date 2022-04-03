@@ -6,7 +6,7 @@ pragma solidity >=0.4.22 <0.9.0;
 // import { SealedAuction } from './EAuc';
 import './Auc.sol';
 
-contract EAucFactory {
+contract EAuc {
     address payable[] public auctions;
     // struct AuctionDetails{
     //     uint bidDecrement;
@@ -23,9 +23,9 @@ contract EAucFactory {
     }
 
     function createAuction(uint bidDecrement, uint startBlock, uint endBlock, string memory ipfsHash) public {
-        Auc newAuction = new Auc(msg.sender, bidDecrement,startBlock,endBlock,ipfsHash);
+        AucFactory newAuction = new AucFactory(msg.sender, bidDecrement,startBlock,endBlock,ipfsHash);
         // newAuction;
-        auctions.push(newAuction);
+        // auctions.push(newAuction);
         // auctions.push(newAuction);
         emit AuctionCreated(newAuction, msg.sender, auctions.length, auctions);
 

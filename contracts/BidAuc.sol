@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+import './Auc.sol';
 
 pragma solidity ^0.8.1;
 
@@ -14,10 +15,11 @@ contract BiddingContract {
     uint public startTime;
     uint public endAuction;
 
+    address payable[] public auctions;
     // At the time of deployement intializing empty Bid data
-    constructor() public {
-        AllBids.push(Bid(address(0), 0));
-        owner = msg.sender;
+    constructor()  {
+        AllBids.push(Bid(payable(address(0)), 0));
+        owner = payable(msg.sender);
     }
 
     // modifiers to control the function behaviour
@@ -29,7 +31,7 @@ contract BiddingContract {
     
     // this function will handle your funds
     // it automatically triggered at Bidding payment 
-    function() payable external {
+    function payment() payable external {
         startTime = block.timestamp; 
         endAuction = 60 + startTime; // Auction will end in 15 minutes
         uint lastIndex = AllBids.length - 1; // last index of allbids array (index starts from 0)
@@ -45,7 +47,7 @@ contract BiddingContract {
         {
             owner.transfer(msg.value);
         }// push the highest bidder's address and bid into the contract
-            AllBids.push(Bid(msg.sender, msg.value));
+            AllBids.push(Bid(payable(msg.sender), msg.value));
             
             if(block.timestamp > endAuction) // if Auction ended
             {// transfer higest bid to owner
