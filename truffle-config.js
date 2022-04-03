@@ -33,7 +33,11 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
-
+  rpc: {
+    host: 'localhost',
+    port: 8545,
+    gas: 1900000
+  },
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
@@ -90,7 +94,8 @@ module.exports = {
       //  },
       //  evmVersion: "byzantium"
       // }
-    }
+    },
+    migration_directory: './migrations'
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:

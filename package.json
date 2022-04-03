@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,14 @@
   "bugs": {
     "url": "https://github.com/chotapathak/B2B_Auction/issues"
   },
-  "homepage": "https://github.com/chotapathak/B2B_Auction#readme"
+  "homepage": "https://github.com/chotapathak/B2B_Auction#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "standard": {
+    "global": [
+      "web3"
+    ]
+  }
 }
